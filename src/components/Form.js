@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import uuid from 'uuid/v4';
 import PropTypes from 'prop-types'
 
-const Form = ({ createAppoinment }) => {
-	//Create State de Appoinments
-	const [appoinment, updateAppoinment] = useState({
+const Form = ({ createAppointment }) => {
+	//Create State de Appointments
+	const [appointment, updateAppointment] = useState({
 		pet: '',
 		owner: '',
 		date: '',
@@ -13,19 +13,19 @@ const Form = ({ createAppoinment }) => {
 	});
 
 	const updateState = (event) => {
-		updateAppoinment({
-			...appoinment,
+		updateAppointment({
+			...appointment,
 			[event.target.name]: event.target.value
 		});
 	};
 
 	const [error, updateError] = useState(false)
 
-	const submitAppoinment = (event) => {
+	const submitAppointment = (event) => {
 		event.preventDefault();
 
 		//Validate
-		if (appoinment.pet.trim() === '' || appoinment.owner.trim() === '' || appoinment.date.trim() === '' || appoinment.time.trim() === '' || appoinment.symptoms.trim() === '') {
+		if (appointment.pet.trim() === '' || appointment.owner.trim() === '' || appointment.date.trim() === '' || appointment.time.trim() === '' || appointment.symptoms.trim() === '') {
 			updateError(true);
 			return;
 		}
@@ -34,13 +34,13 @@ const Form = ({ createAppoinment }) => {
 		updateError(false);
 
 		//Assign Id
-		appoinment.id = uuid();
+		appointment.id = uuid();
 
-		//Create Appoinment
-		createAppoinment(appoinment);
+		//Create Appointment
+		createAppointment(appointment);
 
 		//restart form
-		updateAppoinment({
+		updateAppointment({
 			pet: '',
 			owner: '',
 			date: '',
@@ -51,11 +51,11 @@ const Form = ({ createAppoinment }) => {
 
 	return (
 		<>
-			<h2 data-testid="Title">Create Appoinment</h2>
+			<h2 data-testid="Title">Create Appointment</h2>
 
 			{error ? <p data-testid="alert" className="alert-error">All fields are required</p> : null}
 
-			<form onSubmit={submitAppoinment}>
+			<form onSubmit={submitAppointment}>
 				<label>Pet Name</label>
 				<input
 					data-testid="pet"
@@ -64,7 +64,7 @@ const Form = ({ createAppoinment }) => {
 					className="u-full-width"
 					placeholder="Pet Name"
 					onChange={updateState}
-					value={appoinment.pet}
+					value={appointment.pet}
 				/>
 
 				<label>Owner Name</label>
@@ -75,7 +75,7 @@ const Form = ({ createAppoinment }) => {
 					className="u-full-width"
 					placeholder="Owner Name de la Pet"
 					onChange={updateState}
-					value={appoinment.owner}
+					value={appointment.owner}
 				/>
 
 				<label>Date</label>
@@ -85,17 +85,17 @@ const Form = ({ createAppoinment }) => {
 					name="date"
 					className="u-full-width"
 					onChange={updateState}
-					value={appoinment.date}
+					value={appointment.date}
 				/>
 
 				<label>Time</label>
-				<input data-testid="time" type="time" name="time" className="u-full-width" onChange={updateState} value={appoinment.time} />
+				<input data-testid="time" type="time" name="time" className="u-full-width" onChange={updateState} value={appointment.time} />
 
 				<label>Symptoms</label>
-				<textarea data-testid="symptoms" className="u-full-width" name="symptoms" onChange={updateState} value={appoinment.symptoms} />
+				<textarea data-testid="symptoms" className="u-full-width" name="symptoms" onChange={updateState} value={appointment.symptoms} />
 
 				<button data-testid="btn-submit" type="submit" className="u-full-witdth button-primary">
-					Add Appoinment
+					Add Appointment
 				</button>
 			</form>
 		</>
@@ -103,7 +103,7 @@ const Form = ({ createAppoinment }) => {
 }
 
 Form.propTypes = {
-	createAppoinment: PropTypes.func.isRequired
+	createAppointment: PropTypes.func.isRequired
 }
 
 export default Form;

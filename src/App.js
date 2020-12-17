@@ -1,60 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form'
-import Appoinment from './components/Appoinment'
+import Appointment from './components/Appointment'
 
 function App() {
-    //Appoinments in localStorage
-    let initialAppoinments = JSON.parse(localStorage.getItem('appoinments'));
-    if (!initialAppoinments) {
-        initialAppoinments = [];
+    //Appointments in localStorage
+    let initialAppointments = JSON.parse(localStorage.getItem('appointments'));
+    if (!initialAppointments) {
+        initialAppointments = [];
     }
 
-    //Arreglo de Appoinments
-    const [appoinments, saveAppoinments] = useState(initialAppoinments);
+    //Arreglo de Appointments
+    const [appointments, saveAppointments] = useState(initialAppointments);
 
     //se usa cundo cambia el state
     useEffect(() => {
-        if (initialAppoinments) {
-            localStorage.setItem('appoinments', JSON.stringify(appoinments));
+        if (initialAppointments) {
+            localStorage.setItem('appointments', JSON.stringify(appointments));
         } else {
-            localStorage.setItem('appoinments', JSON.stringify([]));
+            localStorage.setItem('appointments', JSON.stringify([]));
         }
-    }, [appoinments, initialAppoinments]);
+    }, [appointments, initialAppointments]);
 
 
 
-    //Add appoinment
-    const createAppoinment = appoinment => {
-        saveAppoinments([...appoinments, appoinment]);
+    // Add appointment
+    const createAppointment = appointment => {
+        saveAppointments([...appointments, appointment]);
     }
 
-    //Delete appoinment
-    const deleteAppoinment = id => {
-        const newAppoinments = appoinments.filter(appoinment => appoinment.id !== id);
-        saveAppoinments(newAppoinments);
+    // Delete appointment
+    const deleteAppointment = id => {
+        const newAppointments = appointments.filter(appointment => appointment.id !== id);
+        saveAppointments(newAppointments);
     }
 
-    //Mensaje condicional
-    const titulo = appoinments.length === 0 ? 'There are no appoinments' : 'Manage your appoinments'
+    // Conditional Message
+    const titulo = appointments.length === 0 ? 'There are no appointments' : 'Manage your appointments'
 
 
     return (
         <>
-            <h1 data-testid="app-name">Apponiment Management</h1>
+            <h1 data-testid="app-name">Appointment Management</h1>
             <div className="container">
                 <div className="row">
                     <div className="one-half column">
                         <Form
-                            createAppoinment={createAppoinment}
+                            createAppointment={createAppointment}
                         />
                     </div>
                     <div className="one-half column">
                         <h2 data-testid="titulo-dinamico">{titulo}</h2>
-                        {appoinments.map(appoinment => (
-                            <Appoinment
-                                key={appoinment.id}
-                                appoinment={appoinment}
-                                deleteAppoinment={deleteAppoinment}
+                        {appointments.map(appointment => (
+                            <Appointment
+                                key={appointment.id}
+                                appointment={appointment}
+                                deleteAppointment={deleteAppointment}
                             />
                         ))}
                     </div>

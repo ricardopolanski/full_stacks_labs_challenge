@@ -4,32 +4,32 @@ import Form from './Form';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 
-const createAppoinment = jest.fn();
+const createAppointment = jest.fn();
 
 it('<Form /> Load form and check the fields', () => {
     render(
         <Form 
-            createAppoinment={createAppoinment}
+            createAppointment={createAppointment}
         />
     );
-    expect( screen.getByText('Create Appoinment') ).toBeInTheDocument();
+    expect( screen.getByText('Create Appointment') ).toBeInTheDocument();
 
     //Heading
     const titulo = screen.getByTestId('Title');
     expect( titulo.tagName ).toBe('H2');
     expect( titulo.tagName ).not.toBe('H1');
-    expect( titulo.textContent ).toBe('Create Appoinment');
+    expect( titulo.textContent ).toBe('Create Appointment');
 
     //Boton Submit
     expect( screen.getByTestId('btn-submit').tagName ).toBe('BUTTON');
-    expect( screen.getByTestId('btn-submit').textContent ).toBe('Add Appoinment');
-    expect( screen.getByTestId('btn-submit').textContent ).not.toBe('Add Nueva Appoinment');
+    expect( screen.getByTestId('btn-submit').textContent ).toBe('Add Appointment');
+    expect( screen.getByTestId('btn-submit').textContent ).not.toBe('Add Nueva Appointment');
 });
 
 it('<Form /> Validate form on submit', () => {
     render(
         <Form 
-            createAppoinment={createAppoinment}
+            createAppointment={createAppointment}
         />
     );
 
@@ -47,7 +47,7 @@ it('<Form /> Validate form on submit', () => {
 it('<Form /> Fill form and check submit', () => {
     render(
         <Form 
-            createAppoinment={createAppoinment}
+            createAppointment={createAppointment}
         />
     );
 
@@ -63,5 +63,5 @@ it('<Form /> Fill form and check submit', () => {
     const alert = screen.queryByTestId('alert');
     expect( alert ).not.toBeInTheDocument();
 
-    expect( createAppoinment ).toHaveBeenCalledTimes(1);
+    expect( createAppointment ).toHaveBeenCalledTimes(1);
 });
