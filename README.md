@@ -16,6 +16,18 @@ You have one hour (1H) to complete the following goals:
  - Create an Object Model Page for each component in the project using the data-testid
  - Create the all E2E test that you consider in order to cover the functionality of the app
 
+## Setup Project
+
+This project use NodeJS 14.0.0 or higher version, you can found the last version here
+ - https://nodejs.org/en/
+
+To Make a copy of this repositiry uses GIT
+ - git clone https://github.com/fullstacklabs/automation-engineer-challenge.git
+
+To install the libraries and dependencies
+ - cd automation-engineer-challenge
+ - npm install
+
 ## Available Scripts
 
 In the project directory, you can run:

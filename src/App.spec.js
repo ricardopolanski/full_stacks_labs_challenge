@@ -30,8 +30,8 @@ it('<App /> fill the form and check if appointment is added', () => {
     const alert = screen.queryByTestId('alert');
     expect( alert ).not.toBeInTheDocument();
 
-    expect( screen.getByTestId('titulo-dinamico').textContent ).toBe('Manage your appointments');
-    expect( screen.getByTestId('titulo-dinamico').textContent ).not.toBe('There are no appointments');
+    expect( screen.getByTestId('dynamic-title').textContent ).toBe('Manage your appointments');
+    expect( screen.getByTestId('dynamic-title').textContent ).not.toBe('There are no appointments');
 });
 
 
@@ -52,7 +52,7 @@ it('<App /> Delete the appointment', () => {
     const btnDelete = screen.getByTestId('btn-delete');
     expect(btnDelete.tagName).toBe('BUTTON');
     expect(btnDelete).toBeInTheDocument();
-    expect( screen.getByTestId('titulo-dinamico').textContent ).toBe('Manage your appointments');
+    expect( screen.getByTestId('dynamic-title').textContent ).toBe('Manage your appointments');
     
     userEvent.click(btnDelete);
     
@@ -60,5 +60,5 @@ it('<App /> Delete the appointment', () => {
 
     expect(screen.queryByText('Hook') ).not.toBeInTheDocument();    
     expect(screen.queryByTestId('appointment') ).not.toBeInTheDocument();
-    expect(screen.getByTestId('titulo-dinamico').textContent ).toBe('There are no appointments');
+    expect(screen.getByTestId('dynamic-title').textContent ).toBe('There are no appointments');
 });

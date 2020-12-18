@@ -9,10 +9,10 @@ function App() {
         initialAppointments = [];
     }
 
-    //Arreglo de Appointments
+    //Appoinments Array
     const [appointments, saveAppointments] = useState(initialAppointments);
 
-    //se usa cundo cambia el state
+    //Used when the state changes
     useEffect(() => {
         if (initialAppointments) {
             localStorage.setItem('appointments', JSON.stringify(appointments));
@@ -49,7 +49,7 @@ function App() {
                         />
                     </div>
                     <div className="one-half column">
-                        <h2 data-testid="titulo-dinamico">{titulo}</h2>
+                        <h2 data-testid="dynamic-title">{titulo}</h2>
                         {appointments.map(appointment => (
                             <Appointment
                                 key={appointment.id}
