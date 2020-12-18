@@ -4,21 +4,21 @@ This project was created to test your automation skills.
 
 ## What you will find in this project
 
- - A React App build using functional components with Hooks
- - The Components have their corresponding unit tests
- - The elements in each component use Data-TestId attributes
+ - A React App build using functional components with Hooks.
+ - The Components have their corresponding unit tests.
+ - The elements in each component use Data-TestId attributes.
 
 ## Goals
 
 You have one hour (1H) to complete the following goals:
 
- - Select an automation framework and setup to use with this project
- - Create an Object Model Page for each component in the project using the data-testid
- - Create all the E2E tests that you consider necessary in order to cover the functionality of the app
+ - Select an automation framework and setup to use with this project.
+ - Create an Object Model Page for each component in the project using the data-testid.
+ - Create all the E2E tests that you consider necessary in order to cover the functionality of the app.
 
 ## Setup Project
 
-This project uses NodeJS 14.0.0 or higher version, you can find the latest version here
+This project uses NodeJS 14.0.0 or higher versions, you can find the latest version here
  - https://nodejs.org/en/
 
 To Make a copy of this repository use GIT
