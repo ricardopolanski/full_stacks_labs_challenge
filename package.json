@@ -21,6 +21,8 @@
     "react-scripts": "^3.4.4"
   },
   "devDependencies": {
+    "cypress": "^9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5"
   },
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/integration/step_definitions"
   }
 }
